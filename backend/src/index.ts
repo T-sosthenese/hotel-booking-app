@@ -6,16 +6,22 @@ import userRoutes from "./routes/users";
 import authRoutes from "./routes/auth";
 import cookieParser from "cookie-parser";
 
-dotenv.config(); // Load environment variables from .env file
+// dotenv.config(); // Load environment variables from .env file
 
-const uri = process.env.MONGODB_CONNECTION_STRING;
-if (!uri) {
-  throw new Error(
-    "Please define the MONGODB_CONNECTION_STRING environment variable"
-  );
+if (process.env.NODE_ENV === "e2e") {
+  dotenv.config({ path: ".env.e2e" });
+} else {
+  dotenv.config(); // This will load .env by default
 }
 
-mongoose.connect(uri);
+// const uri = process.env.MONGODB_CONNECTION_STRING;
+// if (!uri) {
+//   throw new Error(
+//     "Please define the MONGODB_CONNECTION_STRING environment variable"
+//   );
+// }
+
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
 
 const app = express();
 app.use(cookieParser());
