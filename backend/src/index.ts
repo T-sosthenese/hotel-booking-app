@@ -10,6 +10,7 @@ import { v2 as cloudinary } from "cloudinary";
 import myHotelRoutes from "./routes/my-hotels";
 import hotelRoutes from "./routes/hotels";
 import myUserRoutes from "./routes/myuser";
+import bookingRoutes from "./routes/my-bookings";
 
 if (process.env.NODE_ENV === "e2e") {
   dotenv.config({ path: ".env.e2e" });
@@ -43,6 +44,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/myuser", myUserRoutes);
 app.use("/api/my-hotels", myHotelRoutes);
 app.use("/api/hotels", hotelRoutes);
+app.use("/api/my-bookings", bookingRoutes);
 
 app.get("*", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
