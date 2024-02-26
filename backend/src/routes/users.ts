@@ -4,6 +4,7 @@ import User from "../models/user";
 import jwt from "jsonwebtoken";
 
 const router = express.Router();
+
 router.post(
   "/register",
   [
