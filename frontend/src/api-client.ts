@@ -4,8 +4,8 @@ import {
   HotelType,
   HotelSearchResponse,
   PaymentIntentResponse,
+  UserType,
 } from "../../backend/src/shared/types";
-import { UserType } from "../../backend/src/models/user";
 import { BookingFormData } from "./forms/BookingForm/BookingForm";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
